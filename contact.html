@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Font Awesome CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
+  <title>Resume Builder</title>
+
+  <style>
+    /* ================= RESET ================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f8fbff, #eef4ff);
+      color: #1f2937;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ================= NAVBAR ================= */
+    nav {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-inner {
+      max-width: 100%;
+      margin: auto;
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 600;
+      color: #1e7af5;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #374151;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    nav ul li a:hover {
+      color: #1e7af5;
+    }
+
+    .menu-btn {
+      display: none;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: #ffffff;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .mobile-menu a {
+      padding: 14px 40px;
+      text-decoration: none;
+      color: #374151;
+      border-bottom: 1px solid #f1f5f9;
+      display: flex;
+      gap: 10px;
+    }
+
+    .mobile-menu a:hover {
+      background: #f1f5f9;
+      color: #1e7af5;
+    }
+
+    /* ================= CONTACT ================= */
+    .contact {
+      max-width: 1100px;
+      margin: 40px auto;
+      background: #ffffff;
+      padding: 80px 40px;
+      border-radius: 24px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.06);
+    }
+
+    .contact h2 {
+      font-size: 48px;
+      text-align: center;
+    }
+
+    .contact h2 span {
+      color: #1e7af5;
+    }
+
+    .contact p {
+      text-align: center;
+      margin-top: 10px;
+      color: #6b7280;
+      margin-bottom: 20px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 40px;
+      margin-top: 50px;
+      align-items: center;
+    }
+
+    .info-box {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+      align-items: center;
+    }
+
+    .info-box i {
+      font-size: 22px;
+      color: #1e7af5;
+    }
+
+    /* ===== FORM FIX (DESKTOP CENTERING) ===== */
+    .contact-form {
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 16px;
+      border-radius: 8px;
+      border: 1px solid #e5e7eb;
+      font-size: 15px;
+    }
+
+    .btn {
+      padding: 14px 32px;
+      background: #1e7af5;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(30,122,245,0.3);
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      margin-top: auto;
+      background: #ffffff;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: auto;
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #6b7280;
+    }
+
+    .footer-icons {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer-icons a {
+      color: #6b7280;
+      font-size: 18px;
+    }
+
+    .footer-icons a:hover {
+      color: #1e7af5;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .mobile-menu.show {
+        display: flex;
+      }
+
+      .contact {
+        margin: 40px 16px;
+        padding: 50px 24px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact h2 {
+        font-size: 36px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo">
+      <i class="fa-solid fa-file-lines"></i> Owais Khan
+    </div>
+
+    <ul>
+      <li><a href="index.html"><i class="fa-solid fa-house"></i>Home</a></li>
+      <li><a href="about.html"><i class="fa-solid fa-user"></i>About</a></li>
+      <li><a href="resume.html"><i class="fa-solid fa-briefcase"></i>Build Resume</a></li>
+      <li><a href="contact.html"><i class="fa-solid fa-envelope"></i>Contact</a></li>
+    </ul>
+
+    <div class="menu-btn" onclick="toggleMenu()">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+    <a href="about.html"><i class="fa-solid fa-user"></i> About</a>
+    <a href="resume.html"><i class="fa-solid fa-briefcase"></i>Build Resume</a>
+    <a href="#contact.html"><i class="fa-solid fa-envelope"></i> Contact</a>
+  </div>
+</nav>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <h2>Contact <span>Me</span></h2>
+  <p>Feel free to reach out anytime</p>
+
+
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="5" placeholder="Message"></textarea>
+      <button class="btn">
+        <i class="fa-solid fa-paper-plane"></i> Send Message
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <p>© 2026 Owais Khan. All rights reserved.</p>
+    <div class="footer-icons">
+      <a href="https://github.com/OwaisKhan98" target="_blank">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/owaiskhan0" target="_blank">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById("mobileMenu").classList.toggle("show");
+  }
+</script>
+
+</body>
+</html>

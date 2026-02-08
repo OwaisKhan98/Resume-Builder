@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Font Awesome CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+  <link rel="stylesheet" href="stylel.css">
+  <title>Resume Builder</title>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo">
+      <i class="fa-solid fa-file-lines"></i> Owais Khan
+    </div>
+
+    <ul>
+      <li><a href="index.html"><i class="fa-solid fa-house"></i>Home</a></li>
+      <li><a href="about.html"><i class="fa-solid fa-user"></i>About</a></li>
+      <li><a href="resume.html"><i class="fa-solid fa-briefcase"></i>Build Resume</a></li>
+      <li><a href="contact.html"><i class="fa-solid fa-envelope"></i>Contact</a></li>
+    </ul>
+
+    <i class="fa-solid fa-bars menu-btn" onclick="toggleMenu()"></i>
+  </div>
+<div class="mobile-menu" id="mobileMenu">
+    <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+    <a href="about.html"><i class="fa-solid fa-user"></i> About</a>
+    <a href="resume.html"><i class="fa-solid fa-briefcase"></i>Build Resume</a>
+    <a href="#contact.html"><i class="fa-solid fa-envelope"></i> Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="main hero reveal">
+  <div>
+    <h1 class="maintxt">Resume <span>Builder</span></h1>
+    <p class="tagline">Create your resume in minutes</p>
+    <p class="ul">
+      <i class="fa-solid fa-check"></i> Fully customizable •
+      <i class="fa-solid fa-check"></i> Clean layout •
+      <i class="fa-solid fa-check"></i> Light mode
+    </p>
+    <a href="#" class="btn">
+      <i class="fa-solid fa-plus"></i> Create Resume
+    </a>
+  </div>
+
+  <div class="hero-image">
+    <img src="Personal site-rafiki.svg" alt="Resume Illustration">
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="reveal">
+  <div class="footer-inner">
+    <p>© 2026 Owais Khan. All rights reserved.</p>
+    <div class="footer-icons">
+      <a href="https://github.com/OwaisKhan98" target="_blank">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/owaiskhan0" target="_blank">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- JS -->
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("mobileMenu");
+  menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+}
+
+/* Scroll reveal */
+const reveals = document.querySelectorAll(".reveal");
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("active");
+    }
+  });
+},{ threshold: 0.15 });
+
+reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
